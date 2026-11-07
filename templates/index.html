@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Nour Ibrahim - Portfolio</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            background-image: radial-gradient(#e0e0e0 1px, transparent 1px);
+            background-size: 24px 24px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #b83258;
+            color: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            direction: ltr;
+        }
+
+        .nav-title {
+            font-size: 1.1em;
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1250px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .hero-box {
+            background-color: #ffffff;
+            border: 2.5px solid #1a1a1a;
+            border-radius: 15px;
+            padding: 50px 20px;
+            text-align: center;
+            margin-bottom: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-box:hover {
+            transform: translateY(-4px);
+        }
+
+        .hero-box h1 {
+            color: #b83258;
+            font-size: 2.4em;
+            margin: 0 0 15px 0;
+            font-weight: 600;
+        }
+
+        .hero-box p {
+            color: #1a1a1a;
+            font-size: 1.15em;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .about-section {
+            margin-top: 40px;
+            margin-bottom: 70px;
+            padding: 10px 10px;
+            text-align: left;
+            direction: ltr;
+        }
+
+        .about-title {
+            color: #b83258;
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .wavy-lines {
+            width: 140px;
+            height: 12px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 12'%3E%3Cpath d='M0 6 Q5 0 10 6 T20 6' fill='none' stroke='%231a1a1a' stroke-width='2'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .about-text {
+            color: #1a1a1a;
+            font-size: 1.15em;
+            line-height: 1.8;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .skills-section {
+            margin-top: 60px;
+            margin-bottom: 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .skills-circle-wrapper {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3;
+        }
+
+        .rotating-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 3px dashed #1a1a1a;
+            border-radius: 50%;
+            box-sizing: border-box;
+            animation: rotateBorder 12s linear infinite;
+        }
+
+        .skills-circle-content {
+            width: 105px;
+            height: 105px;
+            background-color: #e5e5e5;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .skills-circle-content h2 {
+            color: #4A2E2B;
+            font-size: 1.25em;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .svg-connectors {
+            width: 100%;
+            height: 60px;
+            margin-top: -15px;
+            margin-bottom: 10px;
+        }
+
+        .curve-line {
+            stroke: #1a1a1a;
+            stroke-width: 2.5;
+            fill: none;
+            stroke-dasharray: 6;
+        }
+
+        .skills-tree-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .skill-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .skill-card-main {
+            background-color: #e8f4f8;
+            border: 2px solid #1a1a1a;
+            border-radius: 25px;
+            padding: 14px 22px;
+            font-size: 1.05em;
+            font-weight: 700;
+            color: #1a1a1a;
+            width: 85%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card-main:hover {
+            transform: translateY(-3px);
+            background-color: #d6ebf3;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-card-sub-blue {
+            background-color: #f0f8ff;
+            border: 2px solid #333333;
+            border-radius: 20px;
+            padding: 12px 18px;
+            font-size: 0.98em;
+            font-weight: 600;
+            color: #1a1a1a;
+            width: 85%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card-sub-blue:hover {
+            transform: translateY(-3px);
+            background-color: #e2f1ff;
+            border-color: #b83258;
+        }
+
+        .skill-card-sub-pink {
+            background-color: #fdf2f4;
+            border: 2px solid #333333;
+            border-radius: 20px;
+            padding: 11px 14px;
+            font-size: 0.92em;
+            font-weight: 600;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card-sub-pink:hover {
+            transform: translateY(-3px);
+            background-color: #fce4e9;
+            border-color: #b83258;
+            color: #b83258;
+        }
+
+        .code-badge {
+            font-family: monospace;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .arrow-down {
+            font-size: 1.4em;
+            color: #b83258;
+            margin: 10px 0;
+            font-weight: bold;
+            display: inline-block;
+            animation: bounceArrow 1.5s infinite ease-in-out;
+        }
+
+        @keyframes bounceArrow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(6px); }
+        }
+
+        .ai-grid-branch {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .projects-section {
+            margin-top: 80px;
+            margin-bottom: 60px;
+        }
+
+        .projects-title-center {
+            text-align: center;
+            color: #1a1a1a;
+            font-size: 2.2em;
+            font-weight: 800;
+            margin-bottom: 40px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 1100px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .project-card {
+            background-color: #cbe3f7;
+            border: 2px solid #1a1a1a;
+            border-radius: 16px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            direction: rtl;
+            text-align: right;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #b83258;
+            box-shadow: 0 8px 20px rgba(184, 50, 88, 0.2);
+        }
+
+        .project-card-title {
+            color: #1a1a1a;
+            font-size: 1.15em;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            border-bottom: 2px solid #b83258;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .project-card-desc {
+            color: #1a1a1a;
+            font-size: 0.9em;
+            line-height: 1.6;
+            margin: 0 0 12px 0;
+            font-weight: 500;
+        }
+
+        .project-img-container {
+            width: 100%;
+            height: 135px;
+            background-color: #ffffff;
+            border: 2px solid #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .project-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-img-container img {
+            transform: scale(1.05);
+        }
+
+        .project-footer-links {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            border-top: 1px dashed rgba(26, 26, 26, 0.3);
+            padding-top: 8px;
+            direction: ltr;
+        }
+
+        .python-badge {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: monospace;
+            font-size: 0.8em;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .contact-section {
+            margin-top: 90px;
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .contact-btn-box {
+            display: inline-block;
+            background-color: #b83258;
+            color: #ffffff;
+            font-size: 1.8em;
+            font-weight: 800;
+            padding: 15px 40px;
+            border: 2.5px solid #1a1a1a;
+            border-radius: 18px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn-box:hover {
+            background-color: #1a1a1a;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .contact-item {
+            font-size: 1.1em;
+            color: #1a1a1a;
+            font-weight: 700;
+            text-decoration: none;
+            background-color: #ffffff;
+            border: 2px solid #1a1a1a;
+            padding: 10px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .contact-item:hover {
+            background-color: #f0f8ff;
+            border-color: #b83258;
+            color: #b83258;
+            transform: translateY(-2px);
+        }
+
+        @keyframes rotateBorder {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-title">My Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <div id="home" class="hero-box">
+            <h1>Nour Ibrahim</h1>
+            <p>Informatics Engineering Student | AI & NLP</p>
+        </div>
+
+        <div id="about" class="about-section">
+            <div class="about-title">About Me:</div>
+            <div class="wavy-lines"></div>
+            <p class="about-text">
+                I am an Informatics Engineering student at Latakia University, specializing in Artificial Intelligence and Natural Language Processing.
+            </p>
+        </div>
+
+        <div id="skills" class="skills-section">
+            <div class="skills-circle-wrapper">
+                <div class="rotating-border"></div>
+                <div class="skills-circle-content">
+                    <h2>Skills</h2>
+                </div>
+            </div>
+
+            <svg class="svg-connectors" viewBox="0 0 800 60" preserveAspectRatio="none">
+                <path class="curve-line" d="M 400 0 C 400 40, 200 10, 200 60" />
+                <path class="curve-line" d="M 400 0 C 400 40, 600 10, 600 60" />
+            </svg>
+
+            <div class="skills-tree-grid">
+                <div class="skill-column">
+                    <div class="skill-card-main">
+                        <span>⚡</span> AI & Machine Learning
+                    </div>
+                    <div class="arrow-down">↓</div>
+                    <div class="ai-grid-branch">
+                        <div class="skill-card-sub-pink">💬 NLP</div>
+                        <div class="skill-card-sub-pink">📊 Machine Learning</div>
+                        <div class="skill-card-sub-pink">🧠 Deep Learning</div>
+                        <div class="skill-card-sub-pink">👁️ Computer Vision</div>
+                    </div>
+                </div>
+
+                <div class="skill-column">
+                    <div class="skill-card-main">
+                        <span class="code-badge">&lt;/&gt;</span> Programming
+                    </div>
+                    <div class="arrow-down">↓</div>
+                    <div class="skill-card-sub-blue">
+                        <span class="code-badge">.py</span> Python
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="projects" class="projects-section">
+            <h2 class="projects-title-center">Projects</h2>
+            
+            <div class="projects-grid">
+                
+                <!-- البطاقة 1 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">لعبة تخمين الرقم</h3>
+                        <p class="project-card-desc">تطبيق برمجي تفاعلي يقوم فيه المستخدم بتخمين رقم عشوائي بين 1 و 100 مع تقديم تلميحات ذكية.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1611996575749-79a3a250f948?auto=format&fit=crop&w=600&q=80" alt="لعبة تخمين الرقم">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 2 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">تحميل فيديوهات يوتيوب</h3>
+                        <p class="project-card-desc">أداة بسيطة وفعالة لتحميل مقاطع الفيديو من يوتيوب مباشرة إلى جهازك وبخيارات جودة متعددة.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=600&q=80" alt="تحميل فيديوهات يوتيوب">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 3 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">تحليل بيانات المبيعات</h3>
+                        <p class="project-card-desc">تطبيق لتحليل بيانات المبيعات الخام واستخراج رؤى بيانية لدعم القرار.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="تحليل بيانات المبيعات">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 4 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">آلة حاسبة</h3>
+                        <p class="project-card-desc">تطبيق آلة حاسبة تفاعلي بواجهة رسومية بسيطة لإجراء العمليات الحسابية الأساسية.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?auto=format&fit=crop&w=600&q=80" alt="آلة حاسبة">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 5 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">تطبيق طقس تفاعلي</h3>
+                        <p class="project-card-desc">تطبيق طقس حي ومتفاعل يعرض حالة وتوقعات درجات الحرارة بدقة مع واجهة بصرية ملونة.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=600&q=80" alt="تطبيق طقس تفاعلي">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 6 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">كشف كائنات بناءً على اللون</h3>
+                        <p class="project-card-desc">تطبيق لتحديد وتتبع كائنات محددة بناءً على لونها باستخدام الرؤية الحاسوبية.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80" alt="كشف كائنات بناء على اللون">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 7 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">إعادة تسمية وتنظيم الملفات</h3>
+                        <p class="project-card-desc">تطبيق لتبسيط عملية إعادة تسمية وتنظيم مجموعات كبيرة من الملفات في مجلدات بذكاء.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt="إعادة تسمية وتنظيم الملفات">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 8 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">كشف الوجوه</h3>
+                        <p class="project-card-desc">تطبيق ذكاء اصطناعي لتحديد وتتبع الوجوه البشرية في الصور ومقاطع الفيديو بدقة عالية.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="كشف الوجوه">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 9 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">مولد كلمات المرور</h3>
+                        <p class="project-card-desc">أداة برمجية لإنشاء كلمة مرور قوية وعشوائية.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=600&q=80" alt="مولد كلمات المرور">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 10 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">تحويل النص إلى كلام</h3>
+                        <p class="project-card-desc">تطبيق لتحويل النصوص المكتوبة إلى مقاطع صوتية مسموعة.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1589903308904-1010c2294adc?auto=format&fit=crop&w=600&q=80" alt="تحويل النص إلى كلام">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 11 (سفينة في البحر والمحيط) -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">تحليل بيانات التايتانيك</h3>
+                        <p class="project-card-desc">أداة استكشاف بيانات الركاب ومعرفة العوامل المؤثرة في فرص نجاتهم.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=600&q=80" alt="سفينة في البحر">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 12 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">استخراج بيانات الويب</h3>
+                        <p class="project-card-desc">أداة لاستخراج بيانات من صفحات الويب وتنظيمها في ملفات جاهزة.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="استخراج بيانات الويب">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 13 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">استخراج الصوت من الفيديو</h3>
+                        <p class="project-card-desc">أداة مخصصة لاستخراج المقاطع الصوتية من الفيديو وحفظها بصيغ صوتية.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80" alt="استخراج الصوت من الفيديو">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 14 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">محرر الصور</h3>
+                        <p class="project-card-desc">أداة لتعديل مجموعة كبيرة من الصور دفعة واحدة.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="محرر الصور">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 15 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">التحكم بالصوت عن طريق حركة اليد</h3>
+                        <p class="project-card-desc">أداة لرفع وخفض الصوت عبر تتبع مسافة الأصابع أو حركات اليد مباشرة.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="التحكم بالصوت عن طريق حركة اليد">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 16 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">ملخص المقالات الإخبارية</h3>
+                        <p class="project-card-desc">برنامج يختصر المقالات الإخبارية والمحتوى النص الطويل.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=600&q=80" alt="ملخص المقالات الإخبارية">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 17 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">تكرار الكلمات</h3>
+                        <p class="project-card-desc">أداة لتحليل النصوص وحساب عدد مرات تكرار كل كلمة لمعرفة الأفكار الأكثر أهمية في النص.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=600&q=80" alt="تكرار الكلمات">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 18 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">مترجم لغات احترافي</h3>
+                        <p class="project-card-desc">تطبيق متكامل لترجمة النصوص بين لغات متعددة بدقة عالية مع الحفاظ على المعنى.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" alt="مترجم لغات احترافي">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 19 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">التعرف على الكلام</h3>
+                        <p class="project-card-desc">نظام يستمع إلى الكلام ويحوله إلى نصوص مكتوبة.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=600&q=80" alt="كلام">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+                <!-- البطاقة 20 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-card-title">تتبع الأسهم</h3>
+                        <p class="project-card-desc">تطبيق لتتبع أسعار الأسهم.</p>
+                    </div>
+                    <div>
+                        <div class="project-img-container">
+                            <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=600&q=80" alt="تتبع الأسهم">
+                        </div>
+                        <div class="project-footer-links"><span class="python-badge">Python</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="contact" class="contact-section">
+            <div class="contact-btn-box">Contact Me</div>
+            <div class="contact-details">
+                <!-- رابط يفتح Gmail مباشرة في متصفح جوجل كروم أو المتصفح الافتراضي -->
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nouribrahim67800it@gmail.com" target="_blank" class="contact-item">
+                    <span>📧</span> Email: nouribrahim67800it@gmail.com
+                </a>
+                <a href="https://github.com/NourIbrahim-Ai" target="_blank" class="contact-item">
+                    <span>💻</span> GitHub
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
